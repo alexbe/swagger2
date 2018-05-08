@@ -157,7 +157,7 @@ export function request(compiledPath: CompiledPath | undefined,
         value = (headers || {})[parameter.name];
         break;
       case 'formData':
-        value = (body || {})[parameter.name];
+        value = (body.fields || {})[parameter.name];
         bodyDefined = true;
         break;
       default:
