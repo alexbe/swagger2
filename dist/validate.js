@@ -107,6 +107,9 @@ function request(compiledPath, method, query, body, headers, pathParameters) {
             default:
             // do nothing
         }
+        if (!parameter.required && value === undefined) {
+            return;
+        }
         const error = validate(value, parameter);
         if (error !== undefined) {
             error.where = parameter.in;

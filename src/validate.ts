@@ -164,6 +164,10 @@ export function request(compiledPath: CompiledPath | undefined,
       // do nothing
     }
 
+    if (!parameter.required && value === undefined) {
+      return;
+    }
+
     const error = validate(value, parameter);
     if (error !== undefined) {
       error.where = parameter.in;
